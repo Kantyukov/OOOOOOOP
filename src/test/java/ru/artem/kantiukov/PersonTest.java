@@ -30,7 +30,8 @@ public class PersonTest {
     public void shouldHaveCorrectPersonUpdate (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
         assertAll ("ivan", ()-> assertEquals(NEW_NAME, ivan.getName()),
-                ()-> assertEquals(NEW_AGE, ivan.getAge())
+                ()-> assertEquals(NEW_AGE, ivan.getAge()),
+                ()-> assertEquals(NEW_NAME, ivan.getName())
         );
 //        assertEquals(NEW_NAME, ivan.getName());
 //        assertEquals(NEW_AGE, ivan.getAge());

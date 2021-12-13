@@ -11,12 +11,12 @@ public class Cow implements Talkable, Eatable {
 //        this.color = color;
 //    }
 
-    @Override
+
     public void eat() {
         System.out.println("Я люблю есть трау");
     }
 
-    @Override
+
     public void talk(String frase) {
         System.out.println(frase);
     }
