@@ -11,7 +11,14 @@ public class TestPractice {
         jack.birthDay();
         System.out.println("jack.takeBeer() = " + jack.takeBeer());
         System.out.println("jack.toString() = " + jack.toString());
-
+        jack.talk("Мне 17 лет и меня зовут Джек");
+        jack.eat();
+        Cow murka = new Cow ("Мурка", "Белая в пятнышко");
+        murka.eat();
+        murka.talk("Му му -муууууууууууууу");
+        Plant flore = new Plant("Роза");
+        flore.eat();
+        flore.talk("Я обычно молчу");
 
     }
 }
