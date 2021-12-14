@@ -3,7 +3,7 @@ package ru.artem.kantiukov;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.artem.kantukov.birds.Birds;
+import ru.artem.kantukov.ComparePracticec.birds.Birds;
 
 @DisplayName("Класс Birds должен:")
 public class BirdsTest {
