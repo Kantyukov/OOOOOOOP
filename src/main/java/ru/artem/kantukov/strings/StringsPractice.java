@@ -25,7 +25,12 @@ public class StringsPractice {
             System.out.println("builtString = " + builtString);
 
         }
+        System.out.println("getFirstLine(strMethodsTest) = " + getFirstLine(strMethodsTest));
+    }
+    public static String getFirstLine(String strMethodsTest){
+        String [] data = strMethodsTest.split(" ");
+        return data[0];
+
 
     }
-
 }
