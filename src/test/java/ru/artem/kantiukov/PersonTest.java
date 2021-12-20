@@ -5,8 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.artem.kantukov.person.Person;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Класс должен содержать ряд тестов:")
 
@@ -36,6 +35,12 @@ public class PersonTest {
 //        assertEquals(NEW_NAME, ivan.getName());
 //        assertEquals(NEW_AGE, ivan.getAge());
     }
-
+    @DisplayName("проверка методов")
+    public void testTakeBeer (){
+        Person ivan = new Person(DEFAULT_NAME, AGE);
+        assertEquals(DEFAULT_NAME,NEW_AGE);}
+    public void testBirthDay (){
+        Person ivan = new Person(DEFAULT_NAME, AGE);
+        assertEquals(DEFAULT_NAME,NEW_AGE);}
 
 }
