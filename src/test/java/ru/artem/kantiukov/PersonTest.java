@@ -38,9 +38,12 @@ public class PersonTest {
     @DisplayName("проверка методов")
     public void testTakeBeer (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
-        assertEquals(DEFAULT_NAME,NEW_AGE);}
+        ivan.takeBeer();
+        assertEquals(AGE, ivan.getAge());
+    }
     public void testBirthDay (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
-        assertEquals(DEFAULT_NAME,NEW_AGE);}
+        ivan.birthDay();
+        assertEquals(AGE,ivan.getAge());}
 
 }
