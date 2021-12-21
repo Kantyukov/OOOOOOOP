@@ -8,11 +8,12 @@ public class Plant implements Talkable, Eatable{
 
 
     public void eat() {
-        System.out.println("Я впитываю ультрафиолет");
+
     }
 
 
     public void talk(String frase) {
-        System.out.println(frase);
+
     }
+
 }

@@ -4,10 +4,12 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.IOException;
+
 @Setter
 @Getter
 @Data
-public class Person implements Talkable, Eatable{
+public class Person implements Talkable, Eatable  {
     private final String name;
     private int age;
 
@@ -15,19 +17,19 @@ public class Person implements Talkable, Eatable{
         this.age = age;
         this.name = name;
 
-    }
+        }
 
     public void birthDay() {
         this.age++;
     }
 
-    public boolean takeBeer(){
-        if(age >= 18) return true;
+    public boolean takeBeer() {
+        if (age >= 18) return true;
         else return false;
 
     }
 
-    public void talk(String frase){
+    public void talk(String frase) {
         System.out.println(frase);
     }
 

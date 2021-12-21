@@ -13,11 +13,11 @@ public class Cow implements Talkable, Eatable {
 
 
     public void eat() {
-        System.out.println("Я люблю есть трау");
+
     }
 
 
     public void talk(String frase) {
-        System.out.println(frase);
+
     }
 }
