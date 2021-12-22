@@ -29,8 +29,8 @@ public class PersonTest {
     public void shouldHaveCorrectPersonUpdate (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
         assertAll ("ivan", ()-> assertEquals(NEW_NAME, ivan.getName()),
-                ()-> assertEquals(NEW_AGE, ivan.getAge()),
-                ()-> assertEquals(NEW_NAME, ivan.getName())
+                ()-> assertEquals(NEW_AGE, ivan.getAge())
+
         );
 //        assertEquals(NEW_NAME, ivan.getName());
 //        assertEquals(NEW_AGE, ivan.getAge());
@@ -39,11 +39,13 @@ public class PersonTest {
     public void testTakeBeer (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
         ivan.takeBeer();
-        assertEquals(AGE, ivan.getAge());
+        assertTrue(ivan.takeBeer());
+
     }
     public void testBirthDay (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
         ivan.birthDay();
-        assertEquals(AGE,ivan.getAge());}
+        assertEquals(ivan.getAge(), AGE + 1);
+    }
 
 }
