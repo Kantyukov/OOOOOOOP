@@ -70,6 +70,62 @@ public class CollectionPractice {
         //6
         System.out.println(allBooksList);
 
+        // 7
+        System.out.println();
+
+        for (int i = 0; i < allBooksList.size(); i++) {
+            if (i % 3 == 0) {
+                System.out.println(allBooksList.get(i));
+            }
+        }
+        System.out.println();
+        for (Book books : allBooksList) {
+            if (books.getName().equals("Watchmen")) {
+                System.out.println(books);
+            }
+        }
+
+        //8
+        System.out.println();
+        int lastBookCount = 0;
+        for (int i = 0; i < allBooksList.size(); i++) {
+            if (lastBookCount < 3) {
+                lastBookCount++;
+
+            }else {
+                System.out.println(allBooksList.get(i));
+            }
+        }
+        System.out.println();
+        //9
+        for (Book books : allBooksList) {
+            if (books.getAuthor().length()%3==0) {
+                System.out.println(books);
+            }
+        }
+        Person ivan = new Person("Ivan", 14, true);
+        Person hariton = new Person("Hariton", 18, true);
+        Person marina = new Person("Marina", 20, false);
+        Person hans = new Person("Hans", 20, true);
+        Person edik = new Person("Edik", 21, true);
+        Person hermes = new Person("Hermes", 72, true);
+        Person boris = new Person("Boris", 29, true);
+        ArrayList<Person> allPersonList = new ArrayList<>(Arrays.asList(ivan,hariton,marina,hans,hermes,boris,edik));
+
+        System.out.println();
+        for (Person person : allPersonList) {
+            if ((person.getAge() < 27 && person.getAge() > 18 && person.isMale()) == true){
+                System.out.println(person);
+            }
+        }
+        System.out.println();
+        for (Person person : allPersonList) {
+            if (person.isMale() == false){
+                System.out.println(person);
+            }
+        }
+
+
 
     }
 }
