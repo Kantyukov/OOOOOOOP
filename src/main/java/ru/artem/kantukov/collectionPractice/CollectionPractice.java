@@ -62,7 +62,7 @@ public class CollectionPractice {
 
         //4
         allBooksList.remove(0);
-        allBooksList.remove("Atonement");
+        allBooksList.remove("Atonement"); //Вопрос, почему подсвечивается желтым??
 
         //5
         System.out.println("allBooksList.contains(\"Watchmen\") = " + allBooksList.contains("Watchmen"));
