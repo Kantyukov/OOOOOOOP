@@ -13,7 +13,7 @@ public class CollectionPractice {
 
     public static void main(String[] args) {
 
-        //1
+        System.out.println("1 Создание списков: (Используя конструктор)");
         List<Book> allBooksList = new ArrayList<>();
         System.out.println("allBooksList без добавления " + allBooksList.size()); // До добавления всех книг в список
         System.out.println("allBooksListReady ");
@@ -42,12 +42,19 @@ public class CollectionPractice {
         allBooksList.addAll(allBooksListReady);
         System.out.println("allBooksList с добавления " + allBooksList.size()); // И эту коллекцию добавил уже в созданную коллекцию allBooksList
 
-        // 2
+        System.out.println();
+        System.out.println("2 Получить элемент по индексу:");
         System.out.println(allBooksList.get(0));
         System.out.println(allBooksList.get(16));
 
+        Book lastElement = null;
+        for (int i = 0; i <allBooksList.size(); i++) {
+            lastElement = allBooksList.get(allBooksList.size() - 1);
+        }
+        System.out.println(lastElement);
 
-        //3
+        System.out.println();
+        System.out.println("3  Задачи на вставку элемента:");
         Book atonement = new Book("Atonement", " Ian McEwan", 354);
         Book watchmen = new Book("Watchmen", "Alan Moore (Goodreads Author)", 1159);
         Book neverLetMeGo = new Book("Never Let Me Go", "Kazuo Ishiguro (Goodreads Author)", 654);
@@ -59,18 +66,20 @@ public class CollectionPractice {
         List<Book> allBooksList1 = new ArrayList<>();
         allBooksList1.addAll(allBooksList);
         System.out.println("allBooksList1.size() = " + allBooksList1.size());
-
-        //4
+        System.out.println();
+        System.out.println("4 Задачи на удаление элементов: (Используя методы)");
         allBooksList.remove(0);
-        allBooksList.remove("Atonement"); //Вопрос, почему подсвечивается желтым??
+        allBooksList.remove(atonement); //Вопрос, почему подсвечивается желтым??
+        System.out.println();
+        System.out.println("5 Проверить наличие элемента");
+        System.out.println("allBooksList.contains(\"Watchmen\") = " + allBooksList.contains(watchmen));
 
-        //5
-        System.out.println("allBooksList.contains(\"Watchmen\") = " + allBooksList.contains("Watchmen"));
 
-        //6
+        System.out.println("6 Вывод списка:");
         System.out.println(allBooksList);
 
-        // 7
+        System.out.println("7 Отфильтровать список вернуть записи по некоторому условию:");
+
         System.out.println();
 
         for (int i = 0; i < allBooksList.size(); i++) {
@@ -85,7 +94,8 @@ public class CollectionPractice {
             }
         }
 
-        //8
+
+        System.out.println("8 Пропустить несколько первых элементов");
         System.out.println();
         int lastBookCount = 0;
         for (int i = 0; i < allBooksList.size(); i++) {
@@ -97,12 +107,35 @@ public class CollectionPractice {
             }
         }
         System.out.println();
-        //9
-        for (Book books : allBooksList) {
-            if (books.getAuthor().length()%3==0) {
-                System.out.println(books);
+        System.out.println("7+8: Пропускаем элементы, которые удовлетворяют некоторому условию");
+        int lastBookCount1 = 0;
+        for (int i = 0; i < allBooksList.size(); i++) {
+            if (lastBookCount1 < 3 && allBooksList.get(i).getName().startsWith("The")) {
+                lastBookCount1++;
+
+            }else {
+                System.out.println(allBooksList.get(i));
             }
         }
+
+        System.out.println();
+
+        System.out.println("10 Вернуть первый подходящий элемент:");
+        for (Book books : allBooksList) {
+            if (books.getAuthor().length()%3==0) {System.out.println(books);
+                break;
+            }
+        }
+        System.out.println();
+
+        System.out.println("11 Возвращаем все элементы удовлетворяющие условию:");
+        for (Book books : allBooksList) {
+            if (books.getAuthor().length()%3==0) {System.out.println(books);
+
+            }
+        }
+        System.out.println();
+        System.out.println("12 Создать класс Person.( Поля: имя, возраст и пол isMale )");
         Person ivan = new Person("Ivan", 14, true);
         Person hariton = new Person("Hariton", 18, true);
         Person marina = new Person("Marina", 20, false);
@@ -114,15 +147,31 @@ public class CollectionPractice {
 
         System.out.println();
         for (Person person : allPersonList) {
-            if ((person.getAge() < 27 && person.getAge() > 18 && person.isMale()) == true){
+            if ((person.getAge() < 27 && person.getAge() > 18 && person.isMale()) == true && person.getName().startsWith("H")){
                 System.out.println(person);
             }
         }
         System.out.println();
+        System.out.println("13. Найти средний возраст всех женщин.");
         for (Person person : allPersonList) {
             if (person.isMale() == false){
                 System.out.println(person);
             }
+        }
+
+
+        int countOfWomen = 0;
+        int sum = 0;
+        int avgAgeOfWoman;
+
+        for (int i = 0; i < allPersonList.size(); i++) {
+            if (allPersonList.get(i).isMale() == false) {
+                countOfWomen++;
+                sum += sum + allPersonList.get(i).getAge();
+                avgAgeOfWoman = sum/countOfWomen;
+                System.out.println("avgAgeOfWoman = " + avgAgeOfWoman);
+            }
+
         }
 
 

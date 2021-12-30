@@ -7,24 +7,23 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@AllArgsConstructor
+
 public class Man {
-    private int age;
     private String name;
+    private int age;
 
-    int printExeption(String name, int age) {
-        this.age = age;
+    public Man(String name, int age) {
         this.name = name;
+        this.age = age;
+    }
 
-        try {
+
+    int printException() throws AgeNotValidException {
+
             if (age < 0 || age > 150)
-                throw new AgeNotValidExeption("eres cabron");
+                throw new AgeNotValidException("eres cabron");
             System.out.println("U are good");
-        } catch (AgeNotValidExeption e) {
-            System.out.println("Eres cabron");
-        }
-
-        return age;
+         return age;
     }
 
 }

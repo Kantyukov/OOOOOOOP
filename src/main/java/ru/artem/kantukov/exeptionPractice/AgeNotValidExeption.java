@@ -1,8 +1,8 @@
 package ru.artem.kantukov.exeptionPractice;
 
-public class AgeNotValidExeption extends Exception{
-
-    public AgeNotValidExeption(String errorBad) {
-
+class AgeNotValidException extends Exception{
+    public AgeNotValidException(String errorBad) {
+        super(errorBad);
     }
+
 }

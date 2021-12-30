@@ -9,8 +9,14 @@ public class Person {
 
 
     public static void main(String[] args) {
-        Man ivan = new Man(17, "Ivan");
-        ivan.printExeption("Ivan", 180);
+        Man ivan = new Man("Ivan", 180);
+
+
+      try {
+          ivan.printException();
+                } catch (AgeNotValidException e) {
+          System.out.println("Idiot");;
+      }
 
 
     }
