@@ -10,5 +10,11 @@ public class MyArrayListPractice {
         System.out.println("list.size() = " + list.size());
         System.out.println(list);
         System.out.println("list.isEmpty() = " + list.isEmpty());
+        System.out.println("list.contains(\"Hola!\") = " + list.contains("Hola!"));
+        System.out.println("list.remove(\"Hola!\") = " + list.remove("Hola!"));
+
+        list.clear();
+        System.out.println("list.size() = " + list.size());
+
     }
 }

@@ -35,8 +35,20 @@ public class MyArrayList {
     }
 
     public boolean contains(Object o) {
-
-            return indexOf(o) >= 0;
+         if (o != null) {
+                for (int  i = 0; i< array.length; i++) {
+                    if (o.equals(array[i])) {
+                        return true;
+                    }
+                }
+            } else {
+             for (int  i = 0; i< array.length; i++) {
+                    if (array[i] == null) {
+                        return true;
+                    }
+                }
+            }
+            return false;
 
 
     }
@@ -77,12 +89,10 @@ public class MyArrayList {
     }
 
     public void clear() {
-        realSize++;
+        for (int i = 0; i < array.length; i++)
+            array[i] = null;
 
-        for (int to = array.length, i = 0; i < to; i++){if (i == array.length){array[i] = null;
-                    }}
-
-
+        realSize = 0;
     }
 
     public Object get(int index) {
