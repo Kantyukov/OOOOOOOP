@@ -29,5 +29,6 @@ public class MyArrayListPractice {
         System.out.println("list = " + list);
 
 
+
     }
 }

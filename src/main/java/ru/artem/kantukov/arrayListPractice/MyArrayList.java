@@ -109,9 +109,6 @@ public class MyArrayList {
 
     }
 
-
-
-
     public Object remove(int index) {
         checkIndex(index);
 
