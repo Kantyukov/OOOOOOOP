@@ -1,9 +1,6 @@
 package ru.artem.kantukov.arrayListPractice;
 
 
-import java.awt.*;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Objects;
 
 
@@ -24,23 +21,16 @@ public class MyArrayList {
     }
 
     public boolean isEmpty() {
-        for (int i = 0; i < array.length; i++) {
-            if (Objects.equals(realSize, array[i])) {
-                return true;
-            }else {
-                return false;
-            }
-        }
         return realSize == 0;
     }
 
     public boolean contains(Object o) {
          if (o != null) {
-                for (int  i = 0; i< array.length; i++) {
-                    if (o.equals(array[i])) {
-                        return true;
-                    }
-                }
+             for (Object value : array) {
+                 if (o.equals(value)) {
+                     return true;
+                 }
+             }
             } else {
              for (int  i = 0; i< array.length; i++) {
                     if (array[i] == null) {
@@ -49,8 +39,6 @@ public class MyArrayList {
                 }
             }
             return false;
-
-
     }
 
     public boolean add(Object o) {
@@ -89,34 +77,81 @@ public class MyArrayList {
     }
 
     public void clear() {
-        for (int i = 0; i < array.length; i++)
+        for (int i = 0; i < array.length; i++){
             array[i] = null;
 
-        realSize = 0;
+        realSize = 0;}
     }
 
     public Object get(int index) {
-        return null;
+
+        return array[index];
     }
 
     public Object set(int index, Object element) {
-        return null;
+        Objects.checkIndex(index, array.length);
+        Object oldValue = array[index];
+        array[index] = element;
+        return oldValue;
+
     }
 
     public void add(int index, Object element) {
+        realSize++;
+        if (realSize == array.length){
+            Object[] resArray = new Object[array.length * 3 / 2 + 1];
+            System.arraycopy(array[index], 0, resArray, 0, array.length);
+            array[index] = resArray;
+
+        resArray[index] = element;}
+        array[realSize++] = element;
+
 
     }
 
+
+
+
     public Object remove(int index) {
-        return null;
+        checkIndex(index);
+
+        Object resElement = array[index];
+        if (array.length - 1 - index >= 0) {
+            System.arraycopy(array, index + 1, array, index, array.length - 1 - index);
+        }
+        realSize--;
+        return resElement;
+    }
+
+    private void checkIndex(int index) {
+        if (!isCorrectIndex(index)) {
+            throw new ArrayIndexOutOfBoundsException("Некорректный индекс");
+        }
+    }
+
+    private boolean isCorrectIndex(int index) {
+        return (index > -1) || (index < realSize);
     }
 
     public int indexOf(Object o) {
-        return 0;
+        for (int i = 0; i < array.length; i++) {
+            if (o.equals(array[i])) return i;
+
+        }
+        throw new ObjectNotValidException("Не найден объект");
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        if (o == null) {
+            for (int i = array.length-1; i >= 0; i--)
+                if (array[i]==null)
+                    return i;
+        } else {
+            for (int i = array.length-1; i >= 0; i--)
+                if (o.equals(array[i]))
+                    return i;
+        }
+        throw new ObjectNotValidException("Объект не найден");
     }
 
     @Override
