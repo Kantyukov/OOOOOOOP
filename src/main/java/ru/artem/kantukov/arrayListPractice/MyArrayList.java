@@ -25,20 +25,20 @@ public class MyArrayList {
     }
 
     public boolean contains(Object o) {
-         if (o != null) {
-             for (Object value : array) {
-                 if (o.equals(value)) {
-                     return true;
-                 }
-             }
-            } else {
-             for (int  i = 0; i< array.length; i++) {
-                    if (array[i] == null) {
-                        return true;
-                    }
+        if (o != null) {
+            for (Object value : array) {
+                if (o.equals(value)) {
+                    return true;
                 }
             }
-            return false;
+        } else {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == null) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public boolean add(Object o) {
@@ -59,7 +59,7 @@ public class MyArrayList {
 
         int delIndex = -1;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] != null && array[i].equals(o)){
+            if (array[i] != null && array[i].equals(o)) {
                 delIndex = i;
                 break;
             }
@@ -77,10 +77,11 @@ public class MyArrayList {
     }
 
     public void clear() {
-        for (int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++) {
             array[i] = null;
 
-        realSize = 0;}
+            realSize = 0;
+        }
     }
 
     public Object get(int index) {
@@ -98,14 +99,28 @@ public class MyArrayList {
 
     public void add(int index, Object element) {
         realSize++;
-        if (realSize == array.length){
+        if (realSize == array.length) {
             Object[] resArray = new Object[array.length * 3 / 2 + 1];
-            System.arraycopy(array[index], 0, resArray, 0, array.length);
-            array[index] = resArray;
+            for (int i = 0; i < resArray.length; i++) {
+                if (index == 0) {
+                    System.arraycopy(array[index], 0, resArray, 0, array.length);
+                    array[index] = resArray;
 
-        resArray[index] = element;}
-        array[realSize++] = element;
+                    resArray[index] = element;
+                    array[realSize++] = element;
+                 } else{
+                    System.arraycopy(array[index], 0, resArray, index, array.length);
+                    array[index] = resArray;
 
+                    resArray[index] = element;
+                    realSize++;
+                    array[realSize++] = element;
+
+                }
+
+            }
+
+        }
 
     }
 
@@ -140,11 +155,11 @@ public class MyArrayList {
 
     public int lastIndexOf(Object o) {
         if (o == null) {
-            for (int i = array.length-1; i >= 0; i--)
-                if (array[i]==null)
+            for (int i = array.length - 1; i >= 0; i--)
+                if (array[i] == null)
                     return i;
         } else {
-            for (int i = array.length-1; i >= 0; i--)
+            for (int i = array.length - 1; i >= 0; i--)
                 if (o.equals(array[i]))
                     return i;
         }

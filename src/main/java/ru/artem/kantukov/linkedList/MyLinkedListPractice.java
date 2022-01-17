@@ -26,10 +26,13 @@ public class MyLinkedListPractice {
         System.out.println("list.get(2) = " + list.get(2));
         System.out.println("list.get(0) = " + list.get(0));
         System.out.println("list.get(6) = " + list.get(6));
-        list.clear();
+        
         System.out.println("list = " + list);
         System.out.println("list.set(1, \"Строка 2\") = " + list.set(1, "Строка 2"));
         System.out.println("list = " + list);
+        list.clear();
+        System.out.println("list = " + list);
+
 
     }
 }

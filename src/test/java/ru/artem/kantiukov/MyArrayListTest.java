@@ -20,6 +20,8 @@ public class MyArrayListTest {
         list.add("Privet");
         assertTrue(list.add("Hola"));
         assertTrue(list.add("Privet"));
+        assertTrue(list.contains("Hola"));
+        assertTrue(list.contains("Privet"));
     }
 
     @DisplayName("Проверка метода isEmpty")
@@ -51,9 +53,9 @@ public class MyArrayListTest {
     public void containsTest(){
         list.add("Hola");
         list.add("Privet");
-        list.clear();
-        assertFalse(list.contains("Hola"));
-        assertFalse(list.contains("Privet"));
+
+        assertTrue(list.contains("Hola"));
+        assertTrue(list.contains("Privet"));
         }
 
     @DisplayName("Проверка метода size")
@@ -67,9 +69,7 @@ public class MyArrayListTest {
     @Test
     public void getTest(){
         list.add("Hola");
-        list.get(0);
         list.add("Privet");
-        list.get(1);
         assertEquals("Hola", list.get(0));
         assertEquals("Privet", list.get(1));
     }
@@ -86,7 +86,7 @@ public class MyArrayListTest {
 //    @Test
 //    public void addElementWithIndexTest(){
 //        list.add(4,"Hola");
-//        assertEquals("Hola", list.get(4));
+//        assertEquals(4, list.indexOf("Hola"));
 //
 //    }
     @DisplayName("Проверка метода lastIndexOf")
@@ -94,16 +94,13 @@ public class MyArrayListTest {
     public void lastIndexOfTest(){
         list.add("Hola");
         list.lastIndexOf("Hola");
-        assertEquals("Hola", list.get(0));
+        assertEquals(0, list.lastIndexOf("Hola"));
     }
     @DisplayName("Проверка метода IndexOf")
     @Test
     public void indexOfTest(){
         list.add("Hola");
-        list.add("Hola!");
-        list.add("Hola!!");
-        list.indexOf("Hola!!");
-        assertEquals("Hola!!", list.get(2));
+        assertEquals(0, list.indexOf("Hola"));
     }
 
 }
