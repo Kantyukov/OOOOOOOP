@@ -8,7 +8,7 @@ public class MyLinkedList {
 
     public int size() {
         Node curNode = head;
-        int realSize = 1; //только пока не понял почему 1 или я что-то делаю не так
+        int realSize = 1;
         if (head == null) return 0;
         else {
             while (curNode.getNext() != null) {
@@ -50,18 +50,35 @@ public class MyLinkedList {
     }
 
     public boolean remove(Object o) {
-        return false;
+        if (head == null) return false; //проверка на то, что у нас объект не в нач
+        if (head.getValue().equals(o)) { //Удаление первого объекта, т.е. когда о является первым элементом
+            head = head.getNext(); // И задаем ему следующее значение после 0
+            return true;
+        }
+        if (head.getNext() == null) return false; //это проверка на последний элемент, что мы не удаляем ноль
+        Node curNode = head; //Дальше бежим двумя нодами по коллекции
+        Node prevNode = head;
+        while ((curNode = curNode.getNext()) != null) {
+            if (curNode.getValue().equals(o)) { //если нашли объект, то заканчиваем поиск
+                break;
+            }
+            prevNode = prevNode.getNext(); //и предыдущий элемент переходит на один вперед
+        }
+        if (curNode == null) return false; // Здесь, на мой взгляд, можно прокинуть ошибку, что не нашли нужный элемент
+        prevNode.setNext(curNode.getNext()); // Тут мы удаляем объект посередине и задаем предыдущей ноде
+        // значение следующего элемента после curNode
+        curNode.setNext(null); // а тут мы на всякий присваиваем ноль, найденному объекту
+        return true;
+
     }
 
     public void clear() {
         Node curNode = head;
         Node prevNode = head;
-        while ((curNode = curNode.getNext()) != null){
-                curNode.setValue(null);
-                prevNode.setValue(null);
-                prevNode.setNext(null);
-
-
+        while ((curNode = curNode.getNext()) != null) {
+            curNode.setValue(null);
+            prevNode.setValue(null);
+            prevNode.setNext(null);
         }
     }
 
@@ -88,32 +105,58 @@ public class MyLinkedList {
         checkIndex(index);
         int count = 0;
         Node resNode = new Node(element, null);
-        Node curNode= head;;
+        Node curNode = head;
+        ;
         if (head == null) {
             head = resNode;
             return resNode;
         } else {
-             while (curNode.getNext() != null) {
+            while (curNode.getNext() != null) {
                 count++;
 
                 if (count == index) {
                     break;
                 }
-                 curNode = curNode.getNext();
+                curNode = curNode.getNext();
             }
-        }curNode.setValue(element);
-
+        }
+        curNode.setValue(element);
 
 
         return curNode.getNext();
     }
 
     public int indexOf(Object o) {
+        int count = 0;
+        Node curNode = head;
+
+        while (curNode.getNext() != null) {
+            curNode = curNode.getNext();
+            count++;
+            if (curNode.getValue().equals(o)) {
+                return count;
+            }
+        }
+        if (curNode == null) return 0;
+
         return 0;
     }
 
     public int lastIndexOf(Object o) {
+        int count = 0;
+        Node curNode = head;
+        curNode = curNode.getNext();
+        count++;
+        while (curNode.getNext() != null) {
+
+            if ((curNode.getValue().equals(o)) && (!curNode.getNext().getValue().equals(o))) {
+                return count;
+            }
+        }
+        if (curNode == null) return 0;
+
         return 0;
+
     }
 
     public Object remove(int index) {

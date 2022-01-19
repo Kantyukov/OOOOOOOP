@@ -39,15 +39,17 @@ public class MyArrayListTest {
         list.clear();
         assertEquals(list.size(), 0);
     }
-//    @DisplayName("Проверка метода remove")
-//    @Test
-//    public void removeTest(){
-//        MyArrayList list = new MyArrayList();
-//        list.add("Hola");
-//        list.add("Privet");
-//        list.remove("Privet");
-//        assertTrue(list.remove("Privet")); //не понимаю почему не работает
-//    }
+    @DisplayName("Проверка метода remove")
+    @Test
+    public void removeTest(){
+        MyArrayList list = new MyArrayList();
+        list.add("Hola");
+        list.add("Privet");
+        list.remove("Privet");
+        list.remove("Hola");
+        assertFalse(list.contains("Privet"));
+        assertFalse(list.contains("Hola"));
+    }
     @DisplayName("Проверка метода contains")
     @Test
     public void containsTest(){
@@ -62,7 +64,6 @@ public class MyArrayListTest {
     @Test
     public void sizeTest(){
        list.add("Hola");
-       list.size();
         assertEquals(1, list.size());
     }
     @DisplayName("Проверка метода get")
@@ -93,14 +94,23 @@ public class MyArrayListTest {
     @Test
     public void lastIndexOfTest(){
         list.add("Hola");
+        list.add("Hola");
+        list.add("Hola");
+        list.add("Hola");
+        list.add("Hola");
         list.lastIndexOf("Hola");
-        assertEquals(0, list.lastIndexOf("Hola"));
+        assertEquals(4, list.lastIndexOf("Hola"));
     }
     @DisplayName("Проверка метода IndexOf")
     @Test
     public void indexOfTest(){
         list.add("Hola");
+        list.add("Hola1");
+        list.add("Hola2");
+        list.add("Hola3");
         assertEquals(0, list.indexOf("Hola"));
+        assertEquals(1, list.indexOf("Hola1"));
+        assertEquals(2, list.indexOf("Hola2"));
     }
 
 }

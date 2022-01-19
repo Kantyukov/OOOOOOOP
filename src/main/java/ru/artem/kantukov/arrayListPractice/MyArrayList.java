@@ -98,8 +98,14 @@ public class MyArrayList {
     }
 
     public void add(int index, Object element) {
-        realSize++;
-        if (realSize == array.length) {
+        checkIndex(index);
+
+        if (realSize + 1 + index < array.length) {
+            System.arraycopy(array, 0, array, index - 1, array.length - 1 - index);
+            System.arraycopy(array, index + 1, array, array.length, array.length + 1 + index);
+            array[index] = element;
+            array[realSize++] = element;
+        } else if (realSize == array.length) {
             Object[] resArray = new Object[array.length * 3 / 2 + 1];
             for (int i = 0; i < resArray.length; i++) {
                 if (index == 0) {
@@ -108,21 +114,45 @@ public class MyArrayList {
 
                     resArray[index] = element;
                     array[realSize++] = element;
-                 } else{
+
+                } else {
                     System.arraycopy(array[index], 0, resArray, index, array.length);
                     array[index] = resArray;
 
                     resArray[index] = element;
                     realSize++;
                     array[realSize++] = element;
-
                 }
 
             }
-
+        } else if (realSize + 1 + index > array.length) {
+            Object[] resArray = new Object[array.length * 3 / 2 + 1];
+            System.arraycopy(array, 0, resArray, index + 1, array.length + 1 + index);
+            array[index] = element;
+            array[realSize++] = element;
         }
-
     }
+//        realSize++;
+//        if (realSize == array.length) {
+//            Object[] resArray = new Object[array.length * 3 / 2 + 1];
+//            for (int i = 0; i < resArray.length; i++) {
+//                if (index == 0) {
+//                    System.arraycopy(array[index], 0, resArray, 0, array.length);
+//                    array[index] = resArray;
+//
+//                    resArray[index] = element;
+//                    array[realSize++] = element;
+//                 } else{
+//                    System.arraycopy(array[index], 0, resArray, index, array.length);
+//                    array[index] = resArray;
+//
+//                    resArray[index] = element;
+//                    realSize++;
+//                    array[realSize++] = element;
+//                }
+//            }
+//        }
+//    }
 
     public Object remove(int index) {
         checkIndex(index);
@@ -146,6 +176,7 @@ public class MyArrayList {
     }
 
     public int indexOf(Object o) {
+
         for (int i = 0; i < array.length; i++) {
             if (o.equals(array[i])) return i;
 
