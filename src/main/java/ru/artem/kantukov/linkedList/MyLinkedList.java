@@ -143,21 +143,22 @@ public class MyLinkedList {
     }
 
     public int lastIndexOf(Object o) {
+
         int count = 0;
         Node curNode = head;
-        curNode = curNode.getNext();
-        count++;
-        while (curNode.getNext() != null) {
+        while (curNode != null) {
+            curNode = curNode.getNext();
+            count++;
+            if (((!curNode.getNext().getValue().equals(o)) || (curNode.getNext() == null)) && (curNode.getValue().equals(o))) {
+               break;
 
-            if ((curNode.getValue().equals(o)) && (!curNode.getNext().getValue().equals(o))) {
-                return count;
-            }
+            }return count;
+
+
         }
-        if (curNode == null) return 0;
-
-        return 0;
-
+        return -1;
     }
+
 
     public Object remove(int index) {
         checkIndex(index); // Проверка корректности инекса

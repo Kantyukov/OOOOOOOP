@@ -1,8 +1,11 @@
 package ru.artem.kantukov.linkedList;
 
+import java.util.LinkedList;
+
 public class MyLinkedListPractice {
     public static void main(String[] args) {
         MyLinkedList list = new MyLinkedList();
+
         System.out.println("list.isEmpty() = " + list.isEmpty());
         System.out.println("list.size() = " + list.size());
         list.add("строка 1");
@@ -30,7 +33,8 @@ public class MyLinkedListPractice {
         System.out.println("list.get(0) = " + list.get(0));
         System.out.println("list.get(6) = " + list.get(6));
         System.out.println("СТрока " +list.indexOf("строка 7"));
-        
+        System.out.println("list.indexOf(\".\") = " + list.indexOf(null));
+
         System.out.println("list = " + list);
         System.out.println("list.set(1, \"Строка 2\") = " + list.set(1, "Строка 2"));
         System.out.println("list = " + list);
