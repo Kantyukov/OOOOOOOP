@@ -29,7 +29,7 @@ public class MyArrayListTest {
     public void isEmptyTest(){
         list.add("Hola");
         list.isEmpty();
-        assertFalse(list.isEmpty()); //Не могу понять почему всегда false,даже, когда я убрал list.add()
+        assertFalse(list.isEmpty());
     }
     @DisplayName("Проверка метода clear")
     @Test

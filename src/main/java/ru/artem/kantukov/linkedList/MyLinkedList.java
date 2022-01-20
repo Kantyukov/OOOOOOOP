@@ -1,5 +1,6 @@
 package ru.artem.kantukov.linkedList;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class MyLinkedList {
@@ -74,13 +75,17 @@ public class MyLinkedList {
 
     public void clear() {
         Node curNode = head;
+
         Node prevNode = head;
         while ((curNode = curNode.getNext()) != null) {
-            curNode.setValue(null);
-            prevNode.setValue(null);
-            prevNode.setNext(null);
+            prevNode.setNext(null); // Правильно ли я понимаю, что сетНекст задает ноль следующее число после предыдущего??
+                                    // И затем prevNode = curNode; и уже затем опять повторяется  prevNode.setNext(null);
+                                    // И все до тех пор пока curNode.getNext()) = null
+            prevNode = curNode;
         }
+        head = null;
     }
+
 
     public Object get(int index) {
         checkIndex(index);
@@ -143,18 +148,20 @@ public class MyLinkedList {
     }
 
     public int lastIndexOf(Object o) {
-
         int count = 0;
         Node curNode = head;
-        while (curNode != null) {
+        while (curNode.getNext() != null) {
             curNode = curNode.getNext();
             count++;
-            if (((!curNode.getNext().getValue().equals(o)) || (curNode.getNext() == null)) && (curNode.getValue().equals(o))) {
-               break;
+            while (curNode.getNext().getValue().equals(o)){
+               return count;
 
-            }return count;
-
-
+            }
+//            if (((!curNode.getNext().getValue().equals(o)) || (curNode.getNext() == null))
+//                    && (curNode.getValue().equals(o))) {
+//                break;
+//            }
+            return count;
         }
         return -1;
     }
