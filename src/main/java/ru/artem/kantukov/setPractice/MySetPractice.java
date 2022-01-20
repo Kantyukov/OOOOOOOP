@@ -6,7 +6,7 @@ import java.util.HashSet;
 
 public class MySetPractice {
     public static void main(String[] args) {
-        Collection<Fruit> fruits = new HashSet<>();
+        Collection<Fruit> fruits;
         Fruit apple = new Fruit("Apple", 10);
         Fruit orange = new Fruit("Orange", 12);
         Fruit banana = new Fruit("Banana", 21);
