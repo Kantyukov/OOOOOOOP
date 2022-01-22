@@ -78,9 +78,7 @@ public class MyLinkedList {
 
         Node prevNode = head;
         while ((curNode = curNode.getNext()) != null) {
-            prevNode.setNext(null); // Правильно ли я понимаю, что сетНекст задает ноль следующее число после предыдущего??
-                                    // И затем prevNode = curNode; и уже затем опять повторяется  prevNode.setNext(null);
-                                    // И все до тех пор пока curNode.getNext()) = null
+            prevNode.setNext(null);
             prevNode = curNode;
         }
         head = null;
@@ -150,22 +148,20 @@ public class MyLinkedList {
     public int lastIndexOf(Object o) {
         int count = 0;
         Node curNode = head;
-        while (curNode.getNext() != null) {
-            curNode = curNode.getNext();
-            count++;
-            while (curNode.getNext().getValue().equals(o)){
-               return count;
-
+        int index = 0;
+        while ((curNode = curNode.getNext()) != null) { // Я понял в чем была ошибка, я неправильно поставил условие
+                                                        // т.е. циклы все правильно, но счетчик нужно было ставить после условия,
+                                                        // И в условии была ошибка. т.е. сейчас бежит по циклу и если и выполняется условеие в if
+                                                        // то индекс = счетчику, который каждый раз увеличивается, но как только o.equals(curNode.getValue())
+                                                        // перестает быть равным объекту, то индекс не равен счетчику и выводится индекс
+            if (o.equals(curNode.getValue())) {
+                index = count;
             }
-//            if (((!curNode.getNext().getValue().equals(o)) || (curNode.getNext() == null))
-//                    && (curNode.getValue().equals(o))) {
-//                break;
-//            }
-            return count;
-        }
-        return -1;
-    }
+            count++;
 
+        }
+        return index;
+    }
 
     public Object remove(int index) {
         checkIndex(index); // Проверка корректности инекса

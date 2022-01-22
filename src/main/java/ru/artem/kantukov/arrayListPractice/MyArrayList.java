@@ -98,61 +98,22 @@ public class MyArrayList {
     }
 
     public void add(int index, Object element) {
-        checkIndex(index);
 
-        if (realSize + 1 + index < array.length) {
-            System.arraycopy(array, 0, array, index - 1, array.length - 1 - index);
-            System.arraycopy(array, index + 1, array, array.length, array.length + 1 + index);
+        if (realSize >= array.length) { /* Если значение реал саайз становится больше размера массива, мы его увеличиваем на значение
+        в скобках и создаем овый массив, где предыдущий массив копируем в 2 "захода", до добавляемого элемента и после
+        где сдвигает на один вперед все индексы */
+            realSize++;
+            Object[] resArray = new Object[3 * 2 * array.length + 1];
+            System.arraycopy(array, 0, resArray, 0, index);
+            System.arraycopy(array, index, resArray, index + 1, array.length - index);
+            array = resArray;
             array[index] = element;
-            array[realSize++] = element;
-        } else if (realSize == array.length) {
-            Object[] resArray = new Object[array.length * 3 / 2 + 1];
-            for (int i = 0; i < resArray.length; i++) {
-                if (index == 0) {
-                    System.arraycopy(array[index], 0, resArray, 0, array.length);
-                    array[index] = resArray;
-
-                    resArray[index] = element;
-                    array[realSize++] = element;
-
-                } else {
-                    System.arraycopy(array[index], 0, resArray, index, array.length);
-                    array[index] = resArray;
-
-                    resArray[index] = element;
-                    realSize++;
-                    array[realSize++] = element;
-                }
-
-            }
-        } else if (realSize + 1 + index > array.length) {
-            Object[] resArray = new Object[array.length * 3 / 2 + 1];
-            System.arraycopy(array, 0, resArray, index + 1, array.length + 1 + index);
-            array[index] = element;
-            array[realSize++] = element;
-        }
+        } /*если же наш массив меньше мы его увеличиваем на 1 и добавляем наш элемент в массив в нужную часть и все */
+        realSize++;
+//        System.arraycopy(array, index, array, index + 1, array.length - index);
+        array[index++] = element;
+        System.out.println("Element is added");
     }
-//        realSize++;
-//        if (realSize == array.length) {
-//            Object[] resArray = new Object[array.length * 3 / 2 + 1];
-//            for (int i = 0; i < resArray.length; i++) {
-//                if (index == 0) {
-//                    System.arraycopy(array[index], 0, resArray, 0, array.length);
-//                    array[index] = resArray;
-//
-//                    resArray[index] = element;
-//                    array[realSize++] = element;
-//                 } else{
-//                    System.arraycopy(array[index], 0, resArray, index, array.length);
-//                    array[index] = resArray;
-//
-//                    resArray[index] = element;
-//                    realSize++;
-//                    array[realSize++] = element;
-//                }
-//            }
-//        }
-//    }
 
     public Object remove(int index) {
         checkIndex(index);

@@ -83,13 +83,13 @@ public class MyArrayListTest {
         assertEquals("Privet", list.get(0));
     }
 
-//    @DisplayName("Проверка метода add(i, element)")
-//    @Test
-//    public void addElementWithIndexTest(){
-//        list.add(4,"Hola");
-//        assertEquals(4, list.indexOf("Hola"));
-//
-//    }
+    @DisplayName("Проверка метода add(i, element)")
+    @Test
+    public void addElementWithIndexTest(){
+        list.add(4,"Hola");
+        assertEquals(4, list.indexOf("Hola"));
+
+    }
     @DisplayName("Проверка метода lastIndexOf")
     @Test
     public void lastIndexOfTest(){

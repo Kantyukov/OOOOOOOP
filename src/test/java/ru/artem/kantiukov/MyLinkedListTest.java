@@ -97,6 +97,7 @@ public class MyLinkedListTest {
         list.add("Hola");
         list.add("Hola");
         list.add("Hola");
+        list.add("Hola");
         list.lastIndexOf("Hola");
         assertEquals(4, list.lastIndexOf("Hola"));
     }
