@@ -87,6 +87,10 @@ public class MyArrayListTest {
     @Test
     public void addElementWithIndexTest(){
         list.add(4,"Hola");
+        list.add(2,"Hola");
+        list.add(1,"Hola");
+        list.add(0,"Hola");
+        list.add(5,"Hola");
         assertEquals(4, list.indexOf("Hola"));
 
     }

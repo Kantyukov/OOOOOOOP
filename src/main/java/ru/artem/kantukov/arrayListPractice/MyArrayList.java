@@ -110,8 +110,8 @@ public class MyArrayList {
             array[index] = element;
         } /*если же наш массив меньше мы его увеличиваем на 1 и добавляем наш элемент в массив в нужную часть и все */
         realSize++;
-//        System.arraycopy(array, index, array, index + 1, array.length - index);
-        array[index++] = element;
+        System.arraycopy(array, index, array, index + 1, array.length - index);
+        array[index] = element;
         System.out.println("Element is added");
     }
 
