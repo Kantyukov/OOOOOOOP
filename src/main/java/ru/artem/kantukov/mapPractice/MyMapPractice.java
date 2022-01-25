@@ -9,26 +9,42 @@ import java.util.Set;
 public class MyMapPractice {
     public static void main(String[] args) {
         // 0
-        Map<Person, String> fruitsStore = new HashMap<>();
+        Map<Person, Fruit> fruitsStore = new HashMap<>();
+        Fruit apple = new Fruit("Apple", 13);
+        Fruit orange = new Fruit("Orange", 19);
+        Fruit banana = new Fruit("Banana", 18);
+        Fruit melon = new Fruit("Melon", 122);
+        Fruit aPPle =new Fruit("APPLE", 10);
+        Fruit papaya =new Fruit("Papaya", 4);
+
         Person marina = new Person("Marina");
         Person ivan = new Person("Ivan");
         Person artem = new Person("Artem");
+        Person artemXXl = new Person("ArtemXXL");
+        Person artemS = new Person("ArtemS");
+        Person artemM = new Person("ArtemM");
         Person ruslan = new Person("Ruslan");
         Person olga = new Person("Olga");
         Person artemOld = new Person("Artem");
 
         //1
-        Map<Person, String> fruitsStoreVer1 = new HashMap<>();
+        Map<Person, Fruit> fruitsStoreVer1 = new HashMap<>();
+
         System.out.println("---------- 1 ------------");
-        fruitsStore.put(marina, "Apple");
-        fruitsStore.put(ivan, "Banana");
-        fruitsStore.put(artem, "Orange");
-        fruitsStore.put(ruslan, "Papaya");
-        fruitsStore.put(olga, "Melon");
-        fruitsStore.put(artemOld, "APPLE");
+        fruitsStore.put(marina, apple);
+        fruitsStore.put(ivan, banana);
+        fruitsStore.put(artemXXl, apple);
+        fruitsStore.put(artemS, apple);
+        fruitsStore.put(artemM, apple);
+        fruitsStore.put(artem, orange);
+        fruitsStore.put(ruslan, papaya);
+        fruitsStore.put(olga, melon);
+        fruitsStore.put(artemOld, aPPle);
 
         fruitsStoreVer1.putAll(fruitsStore);
-        System.out.println("fruitsStoreVer1.entrySet() = " + fruitsStoreVer1.entrySet());
+        for (Map.Entry<Person, Fruit> pair: fruitsStore.entrySet()){
+            System.out.println(pair);
+        }
 
         System.out.println("---------- 2 ------------");
         System.out.println("fruitsStore.get(artem) = " + fruitsStore.get(artem));
@@ -39,13 +55,13 @@ public class MyMapPractice {
         //4
         System.out.println("---------- 4 ------------");
         System.out.println("fruitsStore.containsKey(artem) = " + fruitsStore.containsKey(artem));
-        System.out.println("fruitsStore.containsValue(\"Orange\") = " + fruitsStore.containsValue("Orange"));
+        System.out.println("fruitsStore.containsValue(\"Orange\") = " + fruitsStore.containsValue(orange));
         // 5
         System.out.println("---------- 5 ------------");
-        for (Map.Entry<Person, String> pair : fruitsStore.entrySet()) {
+        for (Map.Entry<Person, Fruit> pair : fruitsStore.entrySet()) {
             Person key = pair.getKey();
             System.out.println("key = " + key);
-            String value = pair.getValue();
+            Fruit value = pair.getValue();
             System.out.println("value = " + value);
         }
         System.out.println("fruitsStore.entrySet() = " + fruitsStore.entrySet());
@@ -57,18 +73,18 @@ public class MyMapPractice {
             }
         }
         int count = 0;
-        for (String keyFruits : fruitsStore.values()) {
+        for (Fruit keyFruits : fruitsStore.values()) {
             if (keyFruits.equals("Orange")) {
                 count++;
             }
-
         }
         System.out.println("count = " + count);
 
         //7
         System.out.println("---------- 7 ------------");
-        for (Map.Entry<Person, String> pair : fruitsStore.entrySet()) {
-            int firstCh = 0;
+        int firstCh = 0;
+        for (Map.Entry<Person, Fruit> pair : fruitsStore.entrySet()) {
+
             if ((pair.getValue().equals("Apple") && (firstCh < 2))) {
                 firstCh++;
             } else {
@@ -76,36 +92,35 @@ public class MyMapPractice {
             }
         }
         System.out.println();
-        for (Map.Entry<Person, String> pair : fruitsStore.entrySet()) {
-            int firstCh = 0;
-            if ((pair.getValue().startsWith("O") && (firstCh < 2))) {
-                firstCh++;
+        int firstCh1 = 0;
+        for (Map.Entry<Person, Fruit> pair : fruitsStore.entrySet()) {
+
+            if ((pair.getValue().getName().startsWith("O") && (firstCh1 < 2))) {
+                firstCh1++;
             } else {
                 System.out.println(pair);
             }
         }
         //8
         System.out.println("---------- 8 ------------");
-        for (Map.Entry<Person, String> pair : fruitsStore.entrySet()) {
-            if (pair.getValue().equalsIgnoreCase("Apple")) {
+        for (Map.Entry<Person, Fruit> pair : fruitsStore.entrySet()) {
+            if (pair.getValue().getName().equalsIgnoreCase("Apple")) {
                 System.out.println(pair);
                 break;
             }
         }
         //9
         System.out.println("---------- 9 ------------");
-        Map<Person, String> fruitsStoreVer2 = new HashMap<>();
-        for (Map.Entry<Person, String> pair : fruitsStore.entrySet()) {
-            if (pair.getValue().equalsIgnoreCase("Apple")) {
+        Map<Person, Fruit> fruitsStoreVer2 = new HashMap<>();
+        for (Map.Entry<Person, Fruit> pair : fruitsStore.entrySet()) {
+            if (pair.getValue().getName().equalsIgnoreCase("Apple")) {
                 fruitsStoreVer2.put(pair.getKey(), pair.getValue());
             }
         }
         System.out.println(fruitsStoreVer2);
         //10
         System.out.println("---------- 10 ------------");
-        /*Есть предположение, что данное задание относится к заданию Set
-        так как здесь не ясно, где вводить вес. Человеку его не присвоишь, то есть создавать новую карту и ее сравнивать?
-         */
+
     }
 
 }
