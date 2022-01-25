@@ -10,7 +10,10 @@ public class PropPractice {
         InputStream inputStream = classLoader.getResourceAsStream("application.properties");
         Properties properties = new Properties();
         properties.load(inputStream);
-        System.out.println(properties.getProperty("key"));
+        String login = properties.getProperty("key");
+        String password = properties.getProperty("value");
+        System.out.println("Login of Sex  Shop: " +login);
+        System.out.println("Password of account: " +password);
 
     }
 }
