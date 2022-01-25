@@ -28,7 +28,7 @@ public class IOStreamPractice {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-//        Files.copy(Path.of("src/main/resources/file.txt"), Path.of("src/main/resources/file1.txt"));
+        Files.copy(Path.of("src/main/resources/file.txt"), Path.of("src/main/resources/file1.txt"));
         System.out.println();
         try (BufferedReader reader = new BufferedReader(new FileReader(file1));) {
             String input = null;
