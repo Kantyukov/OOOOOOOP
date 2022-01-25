@@ -14,8 +14,8 @@ public class MyMapPractice {
         Fruit orange = new Fruit("Orange", 19);
         Fruit banana = new Fruit("Banana", 18);
         Fruit melon = new Fruit("Melon", 122);
-        Fruit aPPle =new Fruit("APPLE", 10);
-        Fruit papaya =new Fruit("Papaya", 4);
+        Fruit aPPle = new Fruit("APPLE", 10);
+        Fruit papaya = new Fruit("Papaya", 4);
 
         Person marina = new Person("Marina");
         Person ivan = new Person("Ivan");
@@ -42,7 +42,7 @@ public class MyMapPractice {
         fruitsStore.put(artemOld, aPPle);
 
         fruitsStoreVer1.putAll(fruitsStore);
-        for (Map.Entry<Person, Fruit> pair: fruitsStore.entrySet()){
+        for (Map.Entry<Person, Fruit> pair : fruitsStore.entrySet()) {
             System.out.println(pair);
         }
 
@@ -120,6 +120,16 @@ public class MyMapPractice {
         System.out.println(fruitsStoreVer2);
         //10
         System.out.println("---------- 10 ------------");
+        int avgSize;
+        int countFruit = 0;
+        int sum = 0;
+        for (Map.Entry<Person, Fruit> pair : fruitsStore.entrySet()) {
+
+            sum +=sum + pair.getValue().getWeight();
+            countFruit++;
+
+        }avgSize = sum/countFruit;
+        System.out.println(avgSize);
 
     }
 
