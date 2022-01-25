@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 public class IOStreamPractice {
     public static void main(String[] args) throws IOException, FileAlreadyExistsException {
@@ -28,7 +29,7 @@ public class IOStreamPractice {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        Files.copy(Path.of("src/main/resources/file.txt"), Path.of("src/main/resources/file1.txt"));
+        Files.copy(Path.of("src/main/resources/file.txt"), Path.of("src/main/resources/file1.txt"), StandardCopyOption.REPLACE_EXISTING);
         System.out.println();
         try (BufferedReader reader = new BufferedReader(new FileReader(file1));) {
             String input = null;
@@ -56,8 +57,8 @@ public class IOStreamPractice {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        Files.copy(Path.of("src/main/resources/file2.txt"), Path.of("src/main/resources/file.txt"));
-        Files.copy(Path.of("src/main/resources/file1.txt"), Path.of("src/main/resources/file2.txt"));
+        Files.copy(Path.of("src/main/resources/file2.txt"), Path.of("src/main/resources/file.txt"), StandardCopyOption.REPLACE_EXISTING);
+        Files.copy(Path.of("src/main/resources/file1.txt"), Path.of("src/main/resources/file2.txt"),StandardCopyOption.REPLACE_EXISTING);
         System.out.println();
         try (BufferedReader reader = new BufferedReader(new FileReader(file));
                 BufferedReader reader1 = new BufferedReader(new FileReader(file2));) {
