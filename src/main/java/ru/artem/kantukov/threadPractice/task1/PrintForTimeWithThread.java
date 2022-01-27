@@ -1,18 +1,15 @@
-package ru.artem.kantukov.threadPractice;
+package ru.artem.kantukov.threadPractice.task1;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-
 
 @AllArgsConstructor
 
-public class PrintForTimeImplRunnable implements Runnable{
-
+public class PrintForTimeWithThread extends Thread{
     private final String massage;
     private final long time;
 
     @Override
-    public void run() {
+    public void run(){
         for (int i = 0; i < 10; i++) {
             try {
                 Thread.sleep(time);
@@ -22,4 +19,5 @@ public class PrintForTimeImplRunnable implements Runnable{
             System.out.println(massage + " ");
         }
     }
+
 }
