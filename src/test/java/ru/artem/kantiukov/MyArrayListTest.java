@@ -86,12 +86,17 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода add(i, element)")
     @Test
     public void addElementWithIndexTest(){
-        list.add(4,"Hola");
-        list.add(2,"Hola");
-        list.add(1,"Hola");
-        list.add(0,"Hola");
-        list.add(5,"Hola");
-        assertEquals(4, list.indexOf("Hola"));
+        list.add("Hola 0");
+        list.add("Hola 1");
+        list.add("Hola 3");
+        list.add(2,"Hola 2");
+        list.add(4,"Hola 4");
+
+        assertEquals(2, list.indexOf("Hola 2"));
+        assertEquals(4, list.indexOf("Hola 4"));
+
+        list.add(0, "FIRST");
+        assertEquals(0, list.indexOf("FIRST"));
 
     }
     @DisplayName("Проверка метода lastIndexOf")
