@@ -98,10 +98,9 @@ public class MyArrayList {
     }
 
     public void add(int index, Object element) {
-
-        if (realSize >= array.length) { /* Если значение реал саайз становится больше размера массива, мы его увеличиваем на значение
-        в скобках и создаем овый массив, где предыдущий массив копируем в 2 "захода", до добавляемого элемента и после
-        где сдвигает на один вперед все индексы */
+        if (realSize >= array.length) { /* Если значение реал сайз становится больше размера массива, мы его увеличиваем на значение
+    в скобках и создаем новый массив, где предыдущий массив копируем в 2 "захода", до добавляемого элемента и после
+    где сдвигает на один вперед все индексы */
             realSize++;
             Object[] resArray = new Object[3 * 2 * array.length + 1];
             System.arraycopy(array, 0, resArray, 0, index);
@@ -109,16 +108,23 @@ public class MyArrayList {
             array = resArray;
             array[index] = element;
         } else {/*если же наш массив меньше мы его увеличиваем на 1 и добавляем наш элемент в массив в нужную часть и все */
+            realSize++;
+
             Object[] resArray = new Object[array.length];
             for (int i = 0; i < index; i++) {
                 resArray[i] = array[i];
             }
+
             for (int i = index + 1; i < realSize; i++) {
                 resArray[i] = array[i - 1];
             }
+
             resArray[index] = element;
+
             array = resArray;
             System.out.println("Element is added");
+
+
             // System.arraycopy(array, index, array, index + 1, array.length - index);
             //   array[index] = element;
         }
@@ -146,13 +152,13 @@ public class MyArrayList {
     }
 
     public int indexOf(Object o) {
-
-        for (int i = 0; i < realSize; i++) {
-            if (o.equals(array[i])) return i;
-
+            for (int i = 0; i < realSize; i++) {
+                if (o.equals(array[i])) {
+                    return i;
+                }
+            }
+            throw new ObjectNotValidException("Не найден объект");
         }
-        throw new ObjectNotValidException("Не найден объект");
-    }
 
     public int lastIndexOf(Object o) {
         if (o == null) {

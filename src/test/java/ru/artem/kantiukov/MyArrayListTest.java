@@ -82,23 +82,7 @@ public class MyArrayListTest {
         list.set(0, "Privet");
         assertEquals("Privet", list.get(0));
     }
-
-    @DisplayName("Проверка метода add(i, element)")
-    @Test
-    public void addElementWithIndexTest(){
-        list.add("Hola 0");
-        list.add("Hola 1");
-        list.add("Hola 3");
-        list.add(2,"Hola 2");
-        list.add(4,"Hola 4");
-
-        assertEquals(2, list.indexOf("Hola 2"));
-        assertEquals(4, list.indexOf("Hola 4"));
-
-        list.add(0, "FIRST");
-        assertEquals(0, list.indexOf("FIRST"));
-
-    }
+    
     @DisplayName("Проверка метода lastIndexOf")
     @Test
     public void lastIndexOfTest(){
@@ -112,14 +96,20 @@ public class MyArrayListTest {
     }
     @DisplayName("Проверка метода IndexOf")
     @Test
-    public void indexOfTest(){
-        list.add("Hola");
-        list.add("Hola1");
-        list.add("Hola2");
-        list.add("Hola3");
-        assertEquals(0, list.indexOf("Hola"));
-        assertEquals(1, list.indexOf("Hola1"));
-        assertEquals(2, list.indexOf("Hola2"));
+    public void addElementWithIndexTest(){
+        list.add("Hola 0");
+        list.add("Hola 1");
+        list.add("Hola 3");
+        list.add(2,"Hola 2");
+        list.add(4,"Hola 4");
+
+        assertEquals(2, list.indexOf("Hola 2"));
+        assertEquals(4, list.indexOf("Hola 4"));
+
+        list.add(0, "FIRST");
+        assertEquals(0, list.indexOf("FIRST"));
+        assertEquals(5, list.indexOf("Hola 4"));
     }
+
 
 }
