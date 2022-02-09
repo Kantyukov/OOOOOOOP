@@ -1,6 +1,6 @@
 package ru.artem.kantukov.linkedList;
 
-import java.util.LinkedList;
+
 
 public class MyLinkedListPractice {
     public static void main(String[] args) {

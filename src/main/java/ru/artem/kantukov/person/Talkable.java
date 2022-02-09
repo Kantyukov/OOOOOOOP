@@ -2,6 +2,6 @@ package ru.artem.kantukov.person;
 
 public interface Talkable {
 
-    void talk(String frase);
+    void talk(String phrase);
 
 }

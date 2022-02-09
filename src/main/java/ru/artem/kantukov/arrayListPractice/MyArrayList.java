@@ -32,8 +32,8 @@ public class MyArrayList {
                 }
             }
         } else {
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] == null) {
+            for (Object value : array) {
+                if (value == null) {
                     return true;
                 }
             }
@@ -68,12 +68,8 @@ public class MyArrayList {
             System.arraycopy(array, delIndex + 1, array, delIndex, array.length - 1 - delIndex);
         }
 
-        if (delIndex == -1) {
-            return false;
-        } else {
-            realSize--;
-            return true;
-        }
+        realSize--;
+        return true;
     }
 
     public void clear() {
@@ -89,11 +85,9 @@ public class MyArrayList {
         return array[index];
     }
 
-    public Object set(int index, Object element) {
+    public void set(int index, Object element) {
         Objects.checkIndex(index, array.length);
-        Object oldValue = array[index];
         array[index] = element;
-        return oldValue;
 
     }
 
@@ -111,13 +105,10 @@ public class MyArrayList {
             realSize++;
 
             Object[] resArray = new Object[array.length];
-            for (int i = 0; i < index; i++) {
-                resArray[i] = array[i];
-            }
+            if (index >= 0) System.arraycopy(array, 0, resArray, 0, index);
 
-            for (int i = index + 1; i < realSize; i++) {
-                resArray[i] = array[i - 1];
-            }
+            if (realSize - (index + 1) >= 0)
+                System.arraycopy(array, index + 1 - 1, resArray, index + 1, realSize - (index + 1));
 
             resArray[index] = element;
 
@@ -125,8 +116,7 @@ public class MyArrayList {
             System.out.println("Element is added");
 
 
-            // System.arraycopy(array, index, array, index + 1, array.length - index);
-            //   array[index] = element;
+             /* System.arraycopy(array, index, array, index + 1, array.length - index); array[index] = element;*/
         }
     }
 

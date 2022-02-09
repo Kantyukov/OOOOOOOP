@@ -1,6 +1,6 @@
 package ru.artem.kantiukov;
 
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.artem.kantukov.person.Person;
@@ -20,8 +20,7 @@ public class PersonTest {
 
     public void shouldHaveCorrectName (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
-//        assertEquals(DEFAULT_NAME, ivan.getName());
-//        assertEquals(AGE, ivan.getAge());
+
         assertAll ("ivan", ()-> assertEquals(DEFAULT_NAME, ivan.getName()),
                 ()-> assertEquals(AGE, ivan.getAge())  );
     }
@@ -32,9 +31,9 @@ public class PersonTest {
                 ()-> assertEquals(NEW_AGE, ivan.getAge())
 
         );
-//        assertEquals(NEW_NAME, ivan.getName());
-//        assertEquals(NEW_AGE, ivan.getAge());
+
     }
+    @Test
     @DisplayName("проверка методов")
     public void testTakeBeer (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
@@ -42,6 +41,7 @@ public class PersonTest {
         assertTrue(ivan.takeBeer());
 
     }
+    @Test
     public void testBirthDay (){
         Person ivan = new Person(DEFAULT_NAME, AGE);
         ivan.birthDay();

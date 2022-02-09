@@ -14,8 +14,7 @@ public class CollectionPractice {
     public static void main(String[] args) {
 
         System.out.println("1 Создание списков: (Используя конструктор)");
-        List<Book> allBooksList = new ArrayList<>();
-        System.out.println("allBooksList без добавления " + allBooksList.size()); // До добавления всех книг в список
+        System.out.println("allBooksList без добавления " + 0); // До добавления всех книг в список
         System.out.println("allBooksListReady ");
         Book aliceInWonderland = new Book("Alice's Adventures in Wonderland", "Lewis Carroll", 200);
         Book toKillAMockingbird = new Book("To Kill a Mockingbird", "Harper Lee", 358);
@@ -39,7 +38,7 @@ public class CollectionPractice {
         ArrayList<Book> allBooksListReady = new ArrayList<>(Arrays.asList(aliceInWonderland, toKillAMockingbird, book1984, theLordOfTheRings, theCatcherInThEye, theGreatGatsby,
                 theLionTheWitch, lordOfTheFlies, animalFarm, catch22, theGrapesOfWrath, goneWithTheWind, slaughterhouseFive, lolita, oneFlewOver, clockworkOrange, areYouThereGod));
         System.out.println("allBooksListReady " + allBooksListReady.size()); // Создал другую коллекцию, не хочу по отдельности переносить все книги
-        allBooksList.addAll(allBooksListReady);
+        List<Book> allBooksList = new ArrayList<>(allBooksListReady);
         System.out.println("allBooksList с добавления " + allBooksList.size()); // И эту коллекцию добавил уже в созданную коллекцию allBooksList
 
         System.out.println();
@@ -63,8 +62,7 @@ public class CollectionPractice {
         allBooksList.add(watchmen);
         allBooksList.add(neverLetMeGo);
         allBooksList.add(3, thingsFallApart);
-        List<Book> allBooksList1 = new ArrayList<>();
-        allBooksList1.addAll(allBooksList);
+        List<Book> allBooksList1 = new ArrayList<>(allBooksList);
         System.out.println("allBooksList1.size() = " + allBooksList1.size());
         System.out.println();
         System.out.println("4 Задачи на удаление элементов: (Используя методы)");
@@ -98,23 +96,23 @@ public class CollectionPractice {
         System.out.println("8 Пропустить несколько первых элементов");
         System.out.println();
         int lastBookCount = 0;
-        for (int i = 0; i < allBooksList.size(); i++) {
+        for (Book value : allBooksList) {
             if (lastBookCount < 3) {
                 lastBookCount++;
 
-            }else {
-                System.out.println(allBooksList.get(i));
+            } else {
+                System.out.println(value);
             }
         }
         System.out.println();
         System.out.println("7+8: Пропускаем элементы, которые удовлетворяют некоторому условию");
         int lastBookCount1 = 0;
-        for (int i = 0; i < allBooksList.size(); i++) {
-            if (lastBookCount1 < 3 && allBooksList.get(i).getName().startsWith("The")) {
+        for (Book book : allBooksList) {
+            if (lastBookCount1 < 3 && book.getName().startsWith("The")) {
                 lastBookCount1++;
 
-            }else {
-                System.out.println(allBooksList.get(i));
+            } else {
+                System.out.println(book);
             }
         }
 
@@ -147,14 +145,13 @@ public class CollectionPractice {
 
         System.out.println();
         for (Person person : allPersonList) {
-            if ((person.getAge() < 27 && person.getAge() > 18 && person.isMale()) == true && person.getName().startsWith("H")){
+            if ((person.getAge() < 27 && person.getAge() > 18 && person.isMale()) && person.getName().startsWith("H"))
                 System.out.println(person);
-            }
         }
         System.out.println();
         System.out.println("13. Найти средний возраст всех женщин.");
         for (Person person : allPersonList) {
-            if (person.isMale() == false){
+            if (!person.isMale()){
                 System.out.println(person);
             }
         }
@@ -164,11 +161,11 @@ public class CollectionPractice {
         int sum = 0;
         int avgAgeOfWoman;
 
-        for (int i = 0; i < allPersonList.size(); i++) {
-            if (allPersonList.get(i).isMale() == false) {
+        for (Person person : allPersonList) {
+            if (!person.isMale()) {
                 countOfWomen++;
-                sum += sum + allPersonList.get(i).getAge();
-                avgAgeOfWoman = sum/countOfWomen;
+                sum += sum + person.getAge();
+                avgAgeOfWoman = sum / countOfWomen;
                 System.out.println("avgAgeOfWoman = " + avgAgeOfWoman);
             }
 

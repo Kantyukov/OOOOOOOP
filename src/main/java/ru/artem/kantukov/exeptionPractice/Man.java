@@ -1,7 +1,7 @@
 package ru.artem.kantukov.exeptionPractice;
 
 
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,12 +18,11 @@ public class Man {
     }
 
 
-    int printException() throws AgeNotValidException {
+    void printException() throws AgeNotValidException {
 
             if (age < 0 || age > 150)
                 throw new AgeNotValidException("eres cabron");
             System.out.println("U are good");
-         return age;
     }
 
 }

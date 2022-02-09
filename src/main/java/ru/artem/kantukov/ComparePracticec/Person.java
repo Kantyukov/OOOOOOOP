@@ -1,7 +1,6 @@
 package ru.artem.kantukov.ComparePracticec;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -26,7 +26,7 @@ public class BirdsTest {
         Birds solovei = new Birds(DEFAULT_NAME, DEFAULT_CRY, DEFAULT_VOICE);
         solovei.setVoice(true);
 
-        Assertions.assertEquals(true, solovei.isVoice());
+        Assertions.assertTrue(solovei.isVoice());
 
 
     }

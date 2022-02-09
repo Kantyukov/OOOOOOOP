@@ -1,15 +1,14 @@
 package ru.artem.kantukov.person;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
 @AllArgsConstructor
 public class Cow implements Talkable, Eatable {
     private final String name;
     private String color;
-//    public Cow (String name, String color){
-//        this.name = name;
-//        this.color = color;
-//    }
+
 
 
     public void eat() {
@@ -17,7 +16,7 @@ public class Cow implements Talkable, Eatable {
     }
 
 
-    public void talk(String frase) {
+    public void talk(String phrase) {
 
     }
 }

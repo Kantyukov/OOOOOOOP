@@ -3,7 +3,7 @@ package ru.artem.kantukov.enumPractice;
 public enum DayOfWeek {
     Lunes("понедельник"), Martes("вторник"), Mieroles("среда"), Jueves("четверг"),
     Viernes("пятница"), Sabado ("суббота"), Dommingo("воскресенье");
-    String translation;
+    final String translation;
     DayOfWeek(String translation){
         this.translation = translation;
     }

@@ -1,7 +1,9 @@
 package ru.artem.kantukov.person;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
 @AllArgsConstructor
 public class Plant implements Talkable, Eatable{
     private String name;
@@ -12,7 +14,7 @@ public class Plant implements Talkable, Eatable{
     }
 
 
-    public void talk(String frase) {
+    public void talk(String phrase) {
 
     }
 

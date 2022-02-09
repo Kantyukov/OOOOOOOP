@@ -1,14 +1,6 @@
 package ru.artem.kantukov.threadPractice.task1;
 
-import lombok.AllArgsConstructor;
-
-
-@AllArgsConstructor
-
-public class PrintForTimeImplRunnable implements Runnable{
-
-    private final String massage;
-    private final long time;
+public record PrintForTimeImplRunnable(String massage, long time) implements Runnable {
 
     @Override
     public void run() {

@@ -1,7 +1,9 @@
 package ru.artem.kantukov.ComparePracticec;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
 @AllArgsConstructor
 public class Boy implements Comparable<Boy>{
     private final String name;

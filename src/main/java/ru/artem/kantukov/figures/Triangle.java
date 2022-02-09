@@ -2,7 +2,7 @@ package ru.artem.kantukov.figures;
 
 public class Triangle extends AllFigures {
     private int height;
-    private int a;
+    private final int a;
     private int b;
     private int c;
 

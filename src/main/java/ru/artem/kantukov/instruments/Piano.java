@@ -1,7 +1,7 @@
 package ru.artem.kantukov.instruments;
 
-public class Pianino extends Instruments{
-    public Pianino (){
+public class Piano extends Instruments{
+    public Piano(){
         super("Пианино", "звук клавиш", 30000, "XL" );
     }
 }

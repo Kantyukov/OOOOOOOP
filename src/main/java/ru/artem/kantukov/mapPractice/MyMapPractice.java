@@ -1,10 +1,10 @@
 package ru.artem.kantukov.mapPractice;
 
-import ru.artem.kantukov.collectionPractice.Book;
+
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
+
 
 public class MyMapPractice {
     public static void main(String[] args) {
@@ -28,7 +28,6 @@ public class MyMapPractice {
         Person artemOld = new Person("Artem");
 
         //1
-        Map<Person, Fruit> fruitsStoreVer1 = new HashMap<>();
 
         System.out.println("---------- 1 ------------");
         fruitsStore.put(marina, apple);
@@ -41,7 +40,8 @@ public class MyMapPractice {
         fruitsStore.put(olga, melon);
         fruitsStore.put(artemOld, aPPle);
 
-        fruitsStoreVer1.putAll(fruitsStore);
+        Map<Person, Fruit> fruitsStoreVer1 = new HashMap<>(fruitsStore);
+        System.out.println(fruitsStoreVer1);
         for (Map.Entry<Person, Fruit> pair : fruitsStore.entrySet()) {
             System.out.println(pair);
         }

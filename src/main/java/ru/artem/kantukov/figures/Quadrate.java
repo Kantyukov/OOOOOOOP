@@ -1,7 +1,7 @@
 package ru.artem.kantukov.figures;
 
 public class Quadrate extends AllFigures {
-    private int length;
+    private final int length;
 
     public Quadrate (int length){
 

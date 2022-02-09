@@ -1,8 +1,5 @@
 package ru.artem.kantukov.linkedList;
 
-import java.util.LinkedList;
-import java.util.Objects;
-
 public class MyLinkedList {
     private Node head;
 
@@ -52,7 +49,7 @@ public class MyLinkedList {
 
     public boolean remove(Object o) {
         if (head == null) return false; //проверка на то, что у нас объект не в нач
-        if (head.getValue().equals(o)) { //Удаление первого объекта, т.е. когда о является первым элементом
+        if (head.getValue().equals(o)) { //Удаление первого объекта, т.е., когда о является первым элементом
             head = head.getNext(); // И задаем ему следующее значение после 0
             return true;
         }
@@ -163,7 +160,7 @@ public class MyLinkedList {
         return index;
     }
 
-    public Object remove(int index) {
+    public void remove(int index) {
         checkIndex(index); // Проверка корректности инекса
         if (index == 0) { // Удаление первого элемента
             Object resValue = head.getValue();
@@ -172,7 +169,7 @@ public class MyLinkedList {
             } else { //Но если у нас не один элемент, мы удаляем первыйй элемент и стартуем от следующего
                 head = head.getNext();
             }
-            return resValue;
+            return;
 
         }
         Node curNode = head; //Дальше мы определяем два значения, первый
@@ -197,7 +194,6 @@ public class MyLinkedList {
             prevNode.setNext(curNode.getNext());
             curNode.setNext(null);          // А значение удаляем
         }
-        return resValue;
     }
 
     private void checkIndex(int index) {

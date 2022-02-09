@@ -2,12 +2,7 @@ package ru.artem.kantukov.threadPractice.task2;
 
 public class ThreadPractice {
     public static void main(String[] args)  {
-        Runnable anonymousRunnable = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Привет я Runnable");
-            }
-        };
+        Runnable anonymousRunnable = () -> System.out.println("Привет я Runnable");
         anonymousRunnable.run();
         Thread thread = new Thread(anonymousRunnable);
         thread.start();

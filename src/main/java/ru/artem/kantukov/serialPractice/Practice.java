@@ -12,11 +12,7 @@ public class Practice {
         Person danil = new Person("Boomer", "007DanyaMaster");
         Person olga = new Person("Gladiolus1993", "Logitech1919toMy");
         List<Person> allLogins = new ArrayList<>(Arrays.asList(ivan,danil,olga));
-
-//        FileOutputStream outputStream = new FileOutputStream("src/main/resources/login.txt");
-//        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-//        objectOutputStream.writeObject(allLogins);
-
+        System.out.println(allLogins);
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("src/main/resources/login.txt"));
         Object obj = inputStream.readObject();
 

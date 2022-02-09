@@ -1,7 +1,7 @@
 package ru.artem.kantukov.figures;
 
 public class Circles extends AllFigures{
-    private double diameter;
+    private final double diameter;
     public static final double PI = 3.1415926535;
 
 

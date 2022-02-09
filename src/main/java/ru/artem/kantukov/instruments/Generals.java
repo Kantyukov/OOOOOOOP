@@ -3,13 +3,13 @@ package ru.artem.kantukov.instruments;
 public class Generals {
     public static void main(String[] args) {
 
-        Instruments pianino = new Pianino();
-        System.out.println(pianino.toString());
+        Instruments piano = new Piano();
+        System.out.println(piano);
         Instruments violin = new Violin();
-        System.out.println(violin.toString());
+        System.out.println(violin);
         Instruments flute = new Flute();
-        System.out.println(flute.toString());
+        System.out.println(flute);
         Instruments drum = new Drum();
-        System.out.println(drum.toString());
+        System.out.println(drum);
     }
 }

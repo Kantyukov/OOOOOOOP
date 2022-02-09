@@ -8,15 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Проверка методо ArrayList")
 public class MyArrayListTest {
-    private static final int DEFAULT_CAPACITY = 10;
-    private Object[] array = new Object[DEFAULT_CAPACITY];
-    private MyArrayList list = new MyArrayList();
-    private int realSize;
 
-    @DisplayName("Проверка метода add")
+     @DisplayName("Проверка метода add")
     @Test
     public void addTest(){
-        list.add("Hola");
+         MyArrayList list = new MyArrayList();
+         list.add("Hola");
         list.add("Privet");
         assertTrue(list.add("Hola"));
         assertTrue(list.add("Privet"));
@@ -27,6 +24,7 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода isEmpty")
     @Test
     public void isEmptyTest(){
+        MyArrayList list = new MyArrayList();
         list.add("Hola");
         list.isEmpty();
         assertFalse(list.isEmpty());
@@ -34,6 +32,7 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода clear")
     @Test
     public void clearTest(){
+        MyArrayList list = new MyArrayList();
         list.add("Hola");
         list.add("Privet");
         list.clear();
@@ -42,6 +41,7 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода remove")
     @Test
     public void removeTest(){
+
         MyArrayList list = new MyArrayList();
         list.add("Hola");
         list.add("Privet");
@@ -53,6 +53,7 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода contains")
     @Test
     public void containsTest(){
+        MyArrayList list = new MyArrayList();
         list.add("Hola");
         list.add("Privet");
 
@@ -63,12 +64,14 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода size")
     @Test
     public void sizeTest(){
+        MyArrayList list = new MyArrayList();
        list.add("Hola");
         assertEquals(1, list.size());
     }
     @DisplayName("Проверка метода get")
     @Test
     public void getTest(){
+        MyArrayList list = new MyArrayList();
         list.add("Hola");
         list.add("Privet");
         assertEquals("Hola", list.get(0));
@@ -78,6 +81,7 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода set")
     @Test
     public void setTest(){
+        MyArrayList list = new MyArrayList();
         list.add("Hola");
         list.set(0, "Privet");
         assertEquals("Privet", list.get(0));
@@ -86,6 +90,7 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода lastIndexOf")
     @Test
     public void lastIndexOfTest(){
+        MyArrayList list = new MyArrayList();
         list.add("Hola");
         list.add("Hola");
         list.add("Hola");
@@ -97,6 +102,7 @@ public class MyArrayListTest {
     @DisplayName("Проверка метода IndexOf")
     @Test
     public void addElementWithIndexTest(){
+        MyArrayList list = new MyArrayList();
         list.add("Hola 0");
         list.add("Hola 1");
         list.add("Hola 3");

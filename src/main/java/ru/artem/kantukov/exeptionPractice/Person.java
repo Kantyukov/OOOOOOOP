@@ -1,9 +1,5 @@
 package ru.artem.kantukov.exeptionPractice;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
 
 public class Person {
 
@@ -15,7 +11,7 @@ public class Person {
       try {
           ivan.printException();
                 } catch (AgeNotValidException e) {
-          System.out.println("Idiot");;
+          System.out.println("Idiot");
       }
 
 

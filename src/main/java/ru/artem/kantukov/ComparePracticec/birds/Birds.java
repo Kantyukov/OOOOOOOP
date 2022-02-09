@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @AllArgsConstructor
 @Getter
 @Setter
@@ -27,10 +29,10 @@ public class Birds {
     @Override //Переопределяем equals
     public boolean equals(Object o) {
         if (this == o) return true; // Если сылаемся на один объект возвращаемя тру
-        if (!(o instanceof Birds)) return false; // Мы проверяем является ли объект экземпляром класса Птица. Если нет, возвращает фалсе
-        Birds birds = (Birds) o; // Приводим тип данных
+        if (!(o instanceof Birds birds)) return false; // Мы проверяем является ли объект экземпляром класса Птица. Если нет, возвращает фалсе
+        // Приводим тип данных
 
-        if (name != birds.name) return false; // Савниваем имя и именем объекта, если не равны выводим фалс
+        if (!Objects.equals(name, birds.name)) return false; // Савниваем имя и именем объекта, если не равны выводим фалс
         return cry.equals(birds.cry);   // Если все тру сравниваем другие параметры
     }
 

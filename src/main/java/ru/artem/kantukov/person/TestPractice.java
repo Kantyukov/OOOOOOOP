@@ -7,10 +7,10 @@ public class TestPractice {
         System.out.println("jack.takeBeer() = " + jack.takeBeer());
         jack.birthDay();
         System.out.println("jack.takeBeer() = " + jack.takeBeer());
-        System.out.println("jack.toString() = " + jack.toString());
+        System.out.println("jack.toString() = " + jack);
         jack.birthDay();
         System.out.println("jack.takeBeer() = " + jack.takeBeer());
-        System.out.println("jack.toString() = " + jack.toString());
+        System.out.println("jack.toString() = " + jack);
         jack.talk("Мне 17 лет и меня зовут Джек");
         jack.eat();
         Cow murka = new Cow ("Мурка", "Белая в пятнышко");
