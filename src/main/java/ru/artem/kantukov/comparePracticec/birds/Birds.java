@@ -1,4 +1,4 @@
-package ru.artem.kantukov.ComparePracticec.birds;
+package ru.artem.kantukov.comparePracticec.birds;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

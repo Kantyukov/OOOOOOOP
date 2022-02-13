@@ -1,4 +1,4 @@
-package ru.artem.kantukov.ComparePracticec;
+package ru.artem.kantukov.comparePracticec;
 
 import java.util.Arrays;
 

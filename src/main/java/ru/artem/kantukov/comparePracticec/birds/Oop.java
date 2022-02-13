@@ -1,4 +1,4 @@
-package ru.artem.kantukov.ComparePracticec.birds;
+package ru.artem.kantukov.comparePracticec.birds;
 
 public class Oop {
     public static void main(String[] args) {
